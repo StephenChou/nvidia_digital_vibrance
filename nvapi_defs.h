@@ -1,5 +1,7 @@
 #pragma once
 
+typedef char NvAPI_ShortString[64];
+
 typedef enum _NvAPI_Status NvAPI_Status;
 
 /* NvAPI Status codes */
@@ -45,4 +47,3 @@ enum  _NvAPI_Status {
 	NVAPI_INVALID_SOURCE = -236, NVAPI_ILLEGAL_INSTRUCTION = -237, NVAPI_INVALID_PC = -238, NVAPI_LAUNCH_FAILED = -239,
 	NVAPI_NOT_PERMITTED = -240, NVAPI_CALLBACK_ALREADY_REGISTERED = -241, NVAPI_CALLBACK_NOT_FOUND = -242
 };
-
