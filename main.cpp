@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <signal.h>
 #include "nv_helper.h"
 #include "check_process.h"
+
+
 
 int main(int argc, char* argv[])
 {

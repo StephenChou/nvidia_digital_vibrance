@@ -110,6 +110,21 @@ void nv_set_digital_vibrance_ex(struct nvapi_hooks* nvapi_hooks, int level)
 
 }
 
+/*
+    Tasks to perform on exit: set digital vibrance back to default and unload NvAPI
+*/
+void nv_exit(struct nvapi_hooks* nvapi_hooks)
+{  
+    NvAPI_Status status;
+    NV_DISPLAY_DVC_INFO_EX disp_dvc_info = nv_set_digital_vibrance(nvapi_hooks);
+
+    nv_set_digital_vibrance_ex(nvapi_hooks, disp_dvc_info.defaultLevel);
+
+    nv_handle_error(nvapi_hooks, status);
+
+    nvapi_hooks->NvAPI_Unload();
+}
+
 /* Handle error checking when making NvAPI calls */
 void nv_handle_error(struct nvapi_hooks *nvapi_hooks, NvAPI_Status nv_status)
 {
