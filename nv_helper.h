@@ -59,13 +59,20 @@ struct nvapi_hooks {
 	NvAPI_GetErrorMessage_t NvAPI_GetErrorMessage;
 };
 
+extern struct nvapi_hooks* nvapi_hooks;
+
+
 /* functions */
 struct nvapi_hooks* nv_init_lib();
 void nv_initialize(struct nvapi_hooks* nvapi_hooks);
-void nv_handle_error(struct nvapi_hooks* nvapi_hooks, NvAPI_Status nv_status);
 void nv_enumerate_displays(struct nvapi_hooks* nvapi_hooks);
 NV_DISPLAY_DVC_INFO_EX nv_get_digital_vibrance(struct nvapi_hooks* nvapi_hooks);
 void nv_set_digital_vibrance(struct nvapi_hooks* nvapi_hooks, int level);
 void nv_set_digital_vibrance_ex(struct nvapi_hooks* nvapi_hooks, int level);
+void nv_set_digital_vibrance_default(struct nvapi_hooks* nvapi_hooks);
+void nv_exit(struct nvapi_hooks* nvapi_hooks);
+void nv_handle_error(struct nvapi_hooks* nvapi_hooks, NvAPI_Status nv_status);
+
+
 
 
